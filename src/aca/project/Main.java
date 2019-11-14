@@ -1,9 +1,9 @@
 package aca.project;
 
-import aca.project.test.test;
+import aca.project.core.Init;
 
 public class Main {
     public static void main(String[] args) {
-        test.init();
+        Init.start();
     }
 }

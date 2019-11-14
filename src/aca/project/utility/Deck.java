@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public final class Deck {
-    ArrayList<Integer> deck;
+    private ArrayList<Integer> deck;
 
     public Deck() {
-        deckReset(6);
+        deckReset();
     }
 
     public Deck(int deckCount) {
         deckReset(deckCount);
+    }
+
+    public void deckReset() {
+        deckReset(6);
     }
 
     public void deckReset(int deckCount) {

@@ -3,17 +3,17 @@ package aca.project.utility;
 import java.util.ArrayList;
 
 public final class Hand {
-    private ArrayList<Integer> hand = new ArrayList<>();
+    private ArrayList<Integer> cards = new ArrayList<>();
 
     public void addCard(int value) {
-        hand.add(value);
+        cards.add(value);
     }
 
     public void clear() {
-        hand = new ArrayList<>();
+        cards = new ArrayList<>();
     }
 
-    public ArrayList<Integer> get() {
-        return hand;
+    public ArrayList<Integer> getCards() {
+        return cards;
     }
 }
