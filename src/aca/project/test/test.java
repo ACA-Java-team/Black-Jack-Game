@@ -1,25 +1,21 @@
-/*
 package aca.project.test;
 
-import aca.project.interfaceShow.Gui;
+
 import aca.project.player.Player;
-import aca.project.utility.Converter;
-import aca.project.utility.Deck;
-import aca.project.utility.Hand;
 
 public class test {
-    public static void init() {
-        Player player = new Player();
-        Deck deck = new Deck();
-        player.hand.addCard(deck.deal());
-        player.hand.addCard(deck.deal());
-
+    public static void cheatDeal(int value, int value2, Player player) {
+        player.getHand().addCard(value);
+        player.getHand().addCard(value2);
     }
 
-    static void showArr(Hand hand) {
-        for (int i = 0; i < hand.get().size(); i++) {
-            System.out.print(" " + hand.get().get(i));
-        }
+    public static void cheatDeal(int value, int value2, int value3, Player player) {
+        cheatDeal(value, value2, player);
+        player.getHand().addCard(value3);
+    }
+
+    public static void cheatDeal(int value, int value2, int value3, int value4, Player player) {
+        cheatDeal(value, value2, value3, player);
+        player.getHand().addCard(value4);
     }
 }
-*/
