@@ -3,7 +3,6 @@ package aca.project.interfaceShow;
 import aca.project.core.Brain;
 import aca.project.player.Player;
 import aca.project.utility.Converter;
-import aca.project.utility.Hand;
 
 import java.util.ArrayList;
 
@@ -11,8 +10,16 @@ import java.util.ArrayList;
 public final class Gui {
     private static final String LINE = "--------------------------------------";
 
-    public static void showHand(Player player) {
+
+    public static void showStats(Player player) {
+        showFigletHand(player);
         System.out.println(LINE);
+        showHand(player);
+        showBank(player);
+        System.out.println(LINE);
+    }
+
+    private static void showHand(Player player) {
         System.out.print(player.getName() + " cards is: ");
         ArrayList<Integer> hand = player.getHand().getCards();
         if (!player.getName().equals("Bot")) {
@@ -24,10 +31,9 @@ public final class Gui {
         } else {
             System.out.println(Converter.face(hand.get(0)) + "  ?");
         }
-        System.out.println(LINE);
     }
 
-    public static void showFigletHand(Player player) {
+    private static void showFigletHand(Player player) {
         if (!player.getName().equals("Bot") || (player.getHand().getCards().size() > 2)) {
             String[][] arr = new String[player.getHand().getCards().size()][FigletCard.getSTRING_COUNT()];
             for (int i = 0; i < arr.length; i++) {
@@ -38,6 +44,10 @@ public final class Gui {
             figletCardsBot(Converter.figlet(player.getHand().getCards().get(0)), FigletCard.getCardBack());
 
         }
+    }
+
+    private static void showBank(Player player) {
+        System.out.println(player.getName() + " bank is: " + player.getBank().getBank());
     }
 
     private static void figletCards(String[][] arr) {
