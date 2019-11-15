@@ -14,10 +14,10 @@ public class Player {
         this.hand = new Hand();
     }
 
-    public Player(int value, String name) {
+    public Player(String name, int value) {
+        this.name = name;
         this.bank = new Bank(value);
         this.hand = new Hand();
-        this.name = name;
     }
 
     public String getName() {
