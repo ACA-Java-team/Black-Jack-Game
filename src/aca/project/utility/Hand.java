@@ -16,4 +16,6 @@ public final class Hand {
     public ArrayList<Integer> getCards() {
         return cards;
     }
+
+
 }

@@ -3,7 +3,7 @@ package aca.project.core;
 import aca.project.utility.Deck;
 import aca.project.utility.Hand;
 
-public class Controller {
+public class Dealer {
     public static void deal2cards(Hand hand, Deck deck) {
         hand.addCard(deck.deal());
         hand.addCard(deck.deal());

@@ -6,7 +6,6 @@ import aca.project.utility.Converter;
 import java.util.ArrayList;
 
 public class Brain {
-
     public static int calcHandValue(Player player) {
         ArrayList<Integer> hand = player.getHand().getCards();
         int value = 0;

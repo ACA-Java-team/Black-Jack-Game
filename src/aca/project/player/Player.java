@@ -12,7 +12,6 @@ public class Player {
     public Player() {
         this.bank = new Bank(2200);
         this.hand = new Hand();
-        this.name = "Bot";
     }
 
     public Player(int value, String name) {

@@ -3,19 +3,56 @@ package aca.project.interfaceShow;
 import aca.project.core.Brain;
 import aca.project.player.Player;
 import aca.project.utility.Converter;
+import aca.project.utility.Hand;
 
 import java.util.ArrayList;
 
 
-public class Gui {
+public final class Gui {
+    private static final String LINE = "--------------------------------------";
+
     public static void showHand(Player player) {
-        System.out.println();
+        System.out.println(LINE);
         System.out.print(player.getName() + " cards is: ");
         ArrayList<Integer> hand = player.getHand().getCards();
-        for (Integer card : hand) {
-            System.out.print(Converter.face(card) + "  ");
+        if (!player.getName().equals("Bot")) {
+            for (Integer card : hand) {
+                System.out.print(Converter.face(card) + "  ");
+            }
+            System.out.println();
+            System.out.println(player.getName() + " hand value is: " + Brain.calcHandValue(player));
+        } else {
+            System.out.println(Converter.face(hand.get(0)) + "  ?");
         }
-        System.out.println(Brain.calcHandValue(player));
+        System.out.println(LINE);
+    }
+
+    public static void showFigletHand(Player player) {
+        if (!player.getName().equals("Bot") || (player.getHand().getCards().size() > 2)) {
+            String[][] arr = new String[player.getHand().getCards().size()][FigletCard.getSTRING_COUNT()];
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = Converter.figlet(player.getHand().getCards().get(i));
+            }
+            figletCards(arr);
+        } else if (player.getName().equals("Bot") && player.getHand().getCards().size() == 2) {
+            figletCardsBot(Converter.figlet(player.getHand().getCards().get(0)), FigletCard.getCardBack());
+
+        }
+    }
+
+    private static void figletCards(String[][] arr) {
+        for (int i = 0; i < arr[0].length; i++) {
+            for (String[] strings : arr) {
+                System.out.print(strings[i] + "      ");
+            }
+            System.out.println();
+        }
+    }
+
+    private static void figletCardsBot(String[] a, String[] b) {
         System.out.println();
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i] + "      " + b[i]);
+        }
     }
 }
