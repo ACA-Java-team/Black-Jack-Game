@@ -47,7 +47,7 @@ public final class Gui {
     }
 
     private static void showBank(Player player) {
-        System.out.println(player.getName() + " bank is: " + player.getBank().getBank());
+        System.out.println(player.getName() + " bank is: " + player.getBank().getAccount());
     }
 
     private static void figletCards(String[][] arr) {

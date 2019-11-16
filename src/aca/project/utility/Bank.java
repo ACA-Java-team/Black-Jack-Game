@@ -16,7 +16,7 @@ public final class Bank {
         this.bank = bank;
     }
 
-    public int getBank() {
+    public int getAccount() {
         return bank;
     }
 
