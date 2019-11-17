@@ -2,6 +2,7 @@ package aca.project.utility;
 
 public final class Bank {
     private int bank;
+    private int thisMomentBet = 0;
 
     public int bet(int value) {
         this.bank -= value;

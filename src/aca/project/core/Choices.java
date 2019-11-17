@@ -27,10 +27,10 @@ class Choices {
         System.out.println("1   or   \"add\"     : for add additional card.");
         System.out.println("2   or   \"double\"  : for double your bet.");
         System.out.println("3   or   \"check\"   : for check cards (end round).");
-        System.out.println("4   or   \"fold\"    : for instant lose but back 1/2 to your bet.");
+        System.out.println("4   or   \"fold\"    : for instant lose but back 1/2 from your bet.");
+        System.out.println();
+        System.out.print("Type: ");
         while (true) {
-            System.out.println();
-            System.out.print("Type: ");
             String choice = scanner.nextLine();
             switch (choice) {
                 case "1":
@@ -46,16 +46,15 @@ class Choices {
                 case "fold":
                     return 4;
                 default:
-                    System.out.println("Error - type again.");
                     break;
             }
         }
     }
 
-    static void betting(Bank bank) {
+    static int betting(Bank bank) {
         System.out.println();
         System.out.print("Bet your money (you have:" + bank.getAccount() + ") : ");
-        bank.bet(scanner.nextInt());
+        return bank.bet(scanner.nextInt());
     }
 
 

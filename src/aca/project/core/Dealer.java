@@ -13,4 +13,8 @@ public class Dealer {
         handA.clear();
         handB.clear();
     }
+
+    public static void addCard(Hand hand, Deck deck) {
+        hand.addCard(deck.deal());
+    }
 }

@@ -18,14 +18,29 @@ public class Init {
         Deck deck = new Deck();
         Choices.start(player);
         clear();
-        Choices.betting(player.getBank());
+        int bet = Choices.betting(player.getBank());
 
         Dealer.deal2cards(player.getHand(), deck);
         Dealer.deal2cards(bot.getHand(), deck);
 
         Gui.showStats(bot);
         Gui.showStats(player);
-        Choices.move();
+        switch (Choices.move()) {
+            case 1:
+                Dealer.addCard(player.getHand(), deck);
+                break;
+            case 2:
+                player.getBank().bet(bet);
+                bet *= 2;
+            case 3:
+                //end
+            case 4:
+                //end
+                player.getBank().win(bet/2);
+        }
+        clear();
+        Gui.showStats(bot);
+        Gui.showStats(player);
     }
 
     private static void clear() throws IOException, InterruptedException {
