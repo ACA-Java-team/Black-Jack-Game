@@ -32,7 +32,6 @@ class Choices {
             System.out.println();
             System.out.print("Type: ");
             String choice = scanner.nextLine();
-            choice = scanner.nextLine();
             switch (choice) {
                 case "1":
                 case "add":
@@ -54,7 +53,8 @@ class Choices {
     }
 
     static void betting(Bank bank) {
-        System.out.println("Bet your money (you have:" + bank.getAccount() + ") : ");
+        System.out.println();
+        System.out.print("Bet your money (you have:" + bank.getAccount() + ") : ");
         bank.bet(scanner.nextInt());
     }
 

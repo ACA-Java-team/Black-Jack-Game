@@ -15,7 +15,9 @@ public final class Gui {
         showFigletHand(player);
         System.out.println(LINE);
         showHand(player);
-        showBank(player);
+        if (!player.getName().equals("Bot")) {
+            showBank(player);
+        }
         System.out.println(LINE);
     }
 
