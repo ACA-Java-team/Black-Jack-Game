@@ -32,6 +32,7 @@ class Choices {
             System.out.println();
             System.out.print("Type: ");
             String choice = scanner.nextLine();
+            choice = scanner.nextLine();
             switch (choice) {
                 case "1":
                 case "add":
