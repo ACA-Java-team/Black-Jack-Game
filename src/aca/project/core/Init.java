@@ -11,7 +11,12 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Init {
+    private static int win = 0;
+    private static int lose = 0;
+    private static int draw = 0;
+
     public static void play() throws IOException, InterruptedException {
+        clear();
         start();
     }
 
@@ -25,25 +30,34 @@ public class Init {
             String result = round(player, bot, deck);
             switch (result) {
                 case "win":
+                    win++;
                     Gui.drawMenu(FigletMenu.getWin());
                     break;
                 case "lose":
+                    lose++;
                     Gui.drawMenu(FigletMenu.getLose());
                     break;
                 case "draw":
+                    draw++;
                     Gui.drawMenu(FigletMenu.getDraw());
                     break;
             }
             System.out.println();
+            if (player.getBank().getAccount() < 2) {
+                break;
+            }
             System.out.print("Do you want play again?: ");
             String continueVar = scanner.nextLine();
             if (continueVar.equals("n") || continueVar.equals("N")) {
                 break;
             }
+            clear();
         }
         Gui.drawMenu(FigletMenu.getResult());
-
-
+        System.out.println(player.getName() + " you have: " + player.getBank().getAccount() + " money.");
+        System.out.println("win = " + win);
+        System.out.println("lose = " + lose);
+        System.out.println("draw = " + draw);
     }
 
 

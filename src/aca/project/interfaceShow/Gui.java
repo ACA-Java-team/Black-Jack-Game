@@ -48,7 +48,7 @@ public  class Gui {
 
     public static void showHandBot(BotPlayer bot) {
         System.out.print(bot.getName() + " cards is: ");
-
+        ArrayList<Integer> hand = bot.getHand().getCards();
     }
 
     private static void showFigletHand(Player player) {
