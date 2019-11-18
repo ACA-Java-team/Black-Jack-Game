@@ -51,8 +51,12 @@ public class Init {
             if (continueVar.equals("n") || continueVar.equals("N")) {
                 break;
             }
+            if (deck.getDeck().size() < 156) {
+                deck.deckReset();
+            }
             clear();
         }
+        clear();
         Gui.drawMenu(FigletMenu.getResult());
         System.out.println(player.getName() + " you have: " + player.getBank().getAccount() + " money.");
         System.out.println("win = " + win);

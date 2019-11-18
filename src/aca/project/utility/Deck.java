@@ -14,7 +14,7 @@ public class Deck {
         deckReset(deckCount);
     }
 
-    private void deckReset() {
+    public void deckReset() {
         deckReset(6);
     }
 
