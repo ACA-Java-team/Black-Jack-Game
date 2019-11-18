@@ -29,19 +29,20 @@ public class Bank {
         this.bet = 0;
     }
 
-    public Bank(int bank) {
-        this.bank = bank;
+    public Bank() {
+        this.bank = 22;
     }
 
     public int getAccount() {
-        return bank;
+        return this.bank;
     }
 
-    public void setBank(int bank) {
-        this.bank = bank;
+    public void draw() {
+        this.bank += this.bet;
+        this.bet = 0;
     }
 
     public int getThisMomentBet() {
-        return bet;
+        return this.bet;
     }
 }

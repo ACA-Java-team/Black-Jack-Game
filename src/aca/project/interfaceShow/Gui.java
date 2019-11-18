@@ -1,13 +1,15 @@
 package aca.project.interfaceShow;
 
 import aca.project.core.Brain;
-import aca.project.player.Player;
+import aca.project.player.BotPlayer;
+import aca.project.player.HumanPlayer;
+import aca.project.interfacesAndAbstractClasses.Player;
 import aca.project.utility.Converter;
 
 import java.util.ArrayList;
 
 
-public final class Gui {
+public  class Gui {
     private static final String LINE = "--------------------------------------";
 
 
@@ -16,7 +18,8 @@ public final class Gui {
         System.out.println(LINE);
         showHand(player);
         if (!player.getName().equals("Bot")) {
-            showBank(player);
+            showBank((HumanPlayer) player);
+            showBet((HumanPlayer) player);
         }
         System.out.println(LINE);
     }
@@ -31,8 +34,21 @@ public final class Gui {
             System.out.println();
             System.out.println(player.getName() + " hand value is: " + Brain.calcHandValue(player));
         } else {
-            System.out.println(Converter.face(hand.get(0)) + "  ?");
+            if (hand.size() == 2) {
+                System.out.println(Converter.face(hand.get(0)) + "  ?");
+            } else {
+                for (Integer card : hand) {
+                    System.out.print(Converter.face(card) + "  ");
+                }
+                System.out.println();
+                System.out.println(player.getName() + " hand value is: " + Brain.calcHandValue(player));
+            }
         }
+    }
+
+    public static void showHandBot(BotPlayer bot) {
+        System.out.print(bot.getName() + " cards is: ");
+        ArrayList<Integer> hand = bot.getHand().getCards();
     }
 
     private static void showFigletHand(Player player) {
@@ -48,11 +64,12 @@ public final class Gui {
         }
     }
 
-    private static void showBank(Player player) {
+    private static void showBank(HumanPlayer player) {
         System.out.println(player.getName() + " bank is: " + player.getBank().getAccount());
     }
 
     private static void figletCards(String[][] arr) {
+        System.out.println();
         for (int i = 0; i < arr[0].length; i++) {
             for (String[] strings : arr) {
                 System.out.print(strings[i] + "      ");
@@ -66,5 +83,16 @@ public final class Gui {
         for (int i = 0; i < a.length; i++) {
             System.out.println(a[i] + "      " + b[i]);
         }
+    }
+
+    public static void drawMenu(String[] arr) {
+        System.out.println();
+        for (String string : arr) {
+            System.out.println(string);
+        }
+    }
+
+    private static void showBet(HumanPlayer player) {
+        System.out.println(player.getName() + " bet is: " + player.getBank().getThisMomentBet()+".");
     }
 }

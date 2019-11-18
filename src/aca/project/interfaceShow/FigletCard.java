@@ -1,6 +1,6 @@
 package aca.project.interfaceShow;
 
-public final class FigletCard {
+public class FigletCard {
     private static final int STRING_COUNT = 11;
     private static String[] cardBack = {
             "################",
@@ -251,11 +251,11 @@ public final class FigletCard {
         return cardA;
     }
 
-    public static String[] getCardBack() {
+    static String[] getCardBack() {
         return cardBack;
     }
 
-    public static int getSTRING_COUNT() {
+    static int getSTRING_COUNT() {
         return STRING_COUNT;
     }
 }

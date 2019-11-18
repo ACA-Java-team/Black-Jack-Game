@@ -2,7 +2,7 @@ package aca.project.utility;
 
 import aca.project.interfaceShow.FigletCard;
 
-public final class Converter {
+public class Converter {
     public static String[] figlet(int value) {
         switch (value) {
             case 1:
