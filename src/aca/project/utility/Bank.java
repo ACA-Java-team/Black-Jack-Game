@@ -2,7 +2,7 @@ package aca.project.utility;
 
 public class Bank {
     private int bank;
-    private int bet = 0;
+    private int bet = 0; //bet have problems (every bet got 2x)
 
     public int bet(int value) {
         this.bank -= value;
@@ -37,8 +37,9 @@ public class Bank {
         return this.bank;
     }
 
-    public void setBank(int bank) {
-        this.bank = bank;
+    public void draw() {
+        this.bank += this.bet;
+        this.bet = 0;
     }
 
     public int getThisMomentBet() {

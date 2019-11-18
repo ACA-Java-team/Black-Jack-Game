@@ -60,7 +60,14 @@ class Choices {
     static int betting(Bank bank) {
         System.out.println();
         System.out.print("Bet your money (you have:" + bank.getAccount() + ") : ");
-        return bank.bet(scanner.nextInt());
+        while (true) {
+            int bet = bank.bet(scanner.nextInt());
+            if (bet < 2 || bet > bank.getAccount()) {
+                System.out.println("Error: try again. (bet cant be more then your bank and less then 2.");
+            } else {
+                return bank.bet(bet);
+            }
+        }
     }
 
 

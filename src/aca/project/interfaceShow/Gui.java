@@ -1,6 +1,7 @@
 package aca.project.interfaceShow;
 
 import aca.project.core.Brain;
+import aca.project.player.BotPlayer;
 import aca.project.player.HumanPlayer;
 import aca.project.interfacesAndAbstractClasses.Player;
 import aca.project.utility.Converter;
@@ -33,8 +34,21 @@ public  class Gui {
             System.out.println();
             System.out.println(player.getName() + " hand value is: " + Brain.calcHandValue(player));
         } else {
-            System.out.println(Converter.face(hand.get(0)) + "  ?");
+            if (hand.size() == 2) {
+                System.out.println(Converter.face(hand.get(0)) + "  ?");
+            } else {
+                for (Integer card : hand) {
+                    System.out.print(Converter.face(card) + "  ");
+                }
+                System.out.println();
+                System.out.println(player.getName() + " hand value is: " + Brain.calcHandValue(player));
+            }
         }
+    }
+
+    public static void showHandBot(BotPlayer bot) {
+        System.out.print(bot.getName() + " cards is: ");
+
     }
 
     private static void showFigletHand(Player player) {
@@ -55,6 +69,7 @@ public  class Gui {
     }
 
     private static void figletCards(String[][] arr) {
+        System.out.println();
         for (int i = 0; i < arr[0].length; i++) {
             for (String[] strings : arr) {
                 System.out.print(strings[i] + "      ");
@@ -67,6 +82,13 @@ public  class Gui {
         System.out.println();
         for (int i = 0; i < a.length; i++) {
             System.out.println(a[i] + "      " + b[i]);
+        }
+    }
+
+    public static void drawMenu(String[] arr) {
+        System.out.println();
+        for (String string : arr) {
+            System.out.println(string);
         }
     }
 

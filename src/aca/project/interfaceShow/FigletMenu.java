@@ -49,19 +49,19 @@ public class FigletMenu {
             "/////////////////////////////////////////////////////////////////////////"
     };
 
-    static String[] getDraw() {
+    public static String[] getDraw() {
         return youDraw;
     }
 
-    static String[] getResult() {
+    public static String[] getResult() {
         return result;
     }
 
-    static String[] getWin() {
+    public static String[] getWin() {
         return youWin;
     }
 
-    static String[] getLose() {
+    public static String[] getLose() {
         return youLose;
     }
 }
