@@ -1,13 +1,14 @@
 package aca.project.interfaceShow;
 
 import aca.project.core.Brain;
-import aca.project.player.Player;
+import aca.project.player.HumanPlayer;
+import aca.project.interfacesAndAbstractClasses.Player;
 import aca.project.utility.Converter;
 
 import java.util.ArrayList;
 
 
-public final class Gui {
+public  class Gui {
     private static final String LINE = "--------------------------------------";
 
 
@@ -16,7 +17,8 @@ public final class Gui {
         System.out.println(LINE);
         showHand(player);
         if (!player.getName().equals("Bot")) {
-            showBank(player);
+            showBank((HumanPlayer) player);
+            showBet((HumanPlayer) player);
         }
         System.out.println(LINE);
     }
@@ -48,7 +50,7 @@ public final class Gui {
         }
     }
 
-    private static void showBank(Player player) {
+    private static void showBank(HumanPlayer player) {
         System.out.println(player.getName() + " bank is: " + player.getBank().getAccount());
     }
 
@@ -66,5 +68,9 @@ public final class Gui {
         for (int i = 0; i < a.length; i++) {
             System.out.println(a[i] + "      " + b[i]);
         }
+    }
+
+    private static void showBet(HumanPlayer player) {
+        System.out.println(player.getName() + " bet is: " + player.getBank().getThisMomentBet()+".");
     }
 }

@@ -1,6 +1,6 @@
 package aca.project.core;
 
-import aca.project.player.Player;
+import aca.project.player.HumanPlayer;
 import aca.project.utility.Bank;
 
 import java.util.Scanner;
@@ -8,17 +8,13 @@ import java.util.Scanner;
 class Choices {
     static private Scanner scanner = new Scanner(System.in);
 
-    static void start(Player player) {
+    static void start(HumanPlayer player) {
         System.out.println("Black jack");
         System.out.println();
 
         System.out.print("Type your name (String): ");
         player.setName(scanner.nextLine());
 
-        System.out.println();
-
-        System.out.print("Type your bank (int): ");
-        player.getBank().setBank(scanner.nextInt());
         System.out.println();
     }
 

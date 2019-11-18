@@ -2,7 +2,8 @@ package aca.project.core;
 
 
 import aca.project.interfaceShow.Gui;
-import aca.project.player.Player;
+import aca.project.player.BotPlayer;
+import aca.project.player.HumanPlayer;
 import aca.project.utility.Deck;
 
 import java.io.IOException;
@@ -13,34 +14,9 @@ public class Init {
     }
 
     private static void start() throws IOException, InterruptedException {
-        Player player = new Player();
-        Player bot = new Player("Bot", 22);
+        HumanPlayer player = new HumanPlayer();
+        BotPlayer bot = new BotPlayer("Bot");
         Deck deck = new Deck();
-        Choices.start(player);
-        clear();
-        int bet = Choices.betting(player.getBank());
-
-        Dealer.deal2cards(player.getHand(), deck);
-        Dealer.deal2cards(bot.getHand(), deck);
-
-        Gui.showStats(bot);
-        Gui.showStats(player);
-        switch (Choices.move()) {
-            case 1:
-                Dealer.addCard(player.getHand(), deck);
-                break;
-            case 2:
-                player.getBank().bet(bet);
-                bet *= 2;
-            case 3:
-                //end
-            case 4:
-                //end
-                player.getBank().win(bet/2);
-        }
-        clear();
-        Gui.showStats(bot);
-        Gui.showStats(player);
     }
 
     private static void clear() throws IOException, InterruptedException {

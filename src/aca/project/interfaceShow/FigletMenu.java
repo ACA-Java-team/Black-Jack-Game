@@ -1,6 +1,6 @@
 package aca.project.interfaceShow;
 
-public final class FigletMenu {
+public class FigletMenu {
     private static String[] youDraw = {
             "/////////////////////////////////////////////",
             "//.########..########.....###....##......##//",

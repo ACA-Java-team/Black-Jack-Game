@@ -3,7 +3,7 @@ package aca.project.utility;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public final class Deck {
+public class Deck {
     private ArrayList<Integer> deck;
 
     public Deck() {
@@ -14,11 +14,11 @@ public final class Deck {
         deckReset(deckCount);
     }
 
-    public void deckReset() {
+    private void deckReset() {
         deckReset(6);
     }
 
-    public void deckReset(int deckCount) {
+    private void deckReset(int deckCount) {
         this.deck = new ArrayList<>();
         for (int i = 0; i < deckCount; i++) {
             for (int j = 0; j < 4; j++) {

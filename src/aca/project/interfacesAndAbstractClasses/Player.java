@@ -1,22 +1,16 @@
-package aca.project.player;
+package aca.project.interfacesAndAbstractClasses;
 
 import aca.project.utility.Bank;
 import aca.project.utility.Hand;
 
 
-public class Player {
+public abstract class Player {
     private String name;
-    private Bank bank;
     private Hand hand;
 
-    public Player() {
-        this.bank = new Bank(2200);
-        this.hand = new Hand();
-    }
 
-    public Player(String name, int value) {
+    public Player(String name) {
         this.name = name;
-        this.bank = new Bank(value);
         this.hand = new Hand();
     }
 
@@ -24,9 +18,6 @@ public class Player {
         return name;
     }
 
-    public Bank getBank() {
-        return bank;
-    }
 
     public Hand getHand() {
         return hand;

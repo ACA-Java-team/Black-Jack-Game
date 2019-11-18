@@ -1,6 +1,6 @@
 package aca.project.core;
 
-import aca.project.player.Player;
+import aca.project.interfacesAndAbstractClasses.Player;
 import aca.project.utility.Converter;
 
 import java.util.ArrayList;
