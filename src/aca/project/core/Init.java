@@ -28,6 +28,7 @@ public class Init {
                     Dealer.addCard(player.getHand(), deck);
                     clear();
                     Gui.showStats(player);
+                    break;
                 case 2:
                     isGoing = false;
                     break;
@@ -35,6 +36,7 @@ public class Init {
                     player.getBank().doubleBet();
                     clear();
                     Gui.showStats(player);
+                    break;
                 case 4:
                     player.getBank().fold();
                     clear();
