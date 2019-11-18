@@ -18,12 +18,14 @@ class Choices {
         System.out.println();
     }
 
-    static int move() {
+    static int move(Boolean isFirstTime) {
         System.out.println("Type your move- ");
         System.out.println("1   or   \"add\"     : for add additional card.");
-        System.out.println("2   or   \"double\"  : for double your bet.");
-        System.out.println("3   or   \"check\"   : for check cards (end round).");
-        System.out.println("4   or   \"fold\"    : for instant lose but back 1/2 from your bet.");
+        System.out.println("2   or   \"check\"   : for check cards (end round).");
+        if (isFirstTime) {
+            System.out.println("3   or   \"double\"  : for double your bet.");
+            System.out.println("4   or   \"fold\"    : for instant lose but back 1/2 from your bet.");
+        }
         System.out.println();
         System.out.print("Type: ");
         while (true) {
@@ -33,14 +35,22 @@ class Choices {
                 case "add":
                     return 1;
                 case "2":
-                case "double":
+                case "check":
                     return 2;
                 case "3":
-                case "check":
-                    return 3;
+                case "double":
+                    if (isFirstTime) {
+                        return 3;
+                    } else {
+                        break;
+                    }
                 case "4":
                 case "fold":
-                    return 4;
+                    if (isFirstTime) {
+                        return 4;
+                    } else {
+                        break;
+                    }
                 default:
                     break;
             }
