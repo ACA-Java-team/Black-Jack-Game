@@ -2,7 +2,7 @@ package aca.project.utility;
 
 public class Bank {
     private int bank;
-    private int bet = 0; //bet have problems (every bet got 2x)
+    private int bet = 0;
 
     public int bet(int value) {
         this.bank -= value;
