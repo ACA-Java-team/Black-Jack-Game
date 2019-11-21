@@ -16,7 +16,9 @@ public class Init {
     private static int draw = 0;
     private static boolean hide = true;
 
+
     public static void play() throws IOException, InterruptedException {
+        clear();
         System.out.println(FigletMenu.getBlackJack());
         Scanner scanner = new Scanner(System.in);
         System.out.println();
@@ -25,6 +27,7 @@ public class Init {
         clear();
         start(name);
     }
+
 
     private static void start(String name) throws IOException, InterruptedException {
         HumanPlayer player = new HumanPlayer();

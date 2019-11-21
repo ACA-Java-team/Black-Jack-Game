@@ -2,6 +2,7 @@ package aca.project.interfaceShow;
 
 public class FigletCard {
     private static final int STRING_COUNT = 11;
+
     private static String[] cardBack = {
             "################",
             "#||||||||||||||#",

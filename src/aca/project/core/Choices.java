@@ -7,6 +7,10 @@ class Choices {
     static private Scanner scanner = new Scanner(System.in);
 
 
+    /**
+     * Player move class, player choose one of 4 options
+     * @return choice
+     */
     static int move(Boolean isFirstTime) {
         System.out.println("Type your move- ");
         System.out.println("   1   or   \"add\"     : for take one more card.");

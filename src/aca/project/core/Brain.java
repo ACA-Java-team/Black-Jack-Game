@@ -9,6 +9,14 @@ import aca.project.utility.Deck;
 import java.util.ArrayList;
 
 public class Brain {
+
+    /**
+     * Calculate @player hand value
+     * 2-10 cards cost 2-10 value
+     * J Q K costs 10 value
+     * ACE costs 1 or 11
+     * @return value
+     */
     public static int calcHandValue(Player player) {
         ArrayList<Integer> hand = player.getHand().getCards();
         int value = 0;
@@ -28,6 +36,11 @@ public class Brain {
         }
     }
 
+    /**
+     * Do turn based on value of bot and player hands
+     * Dealer always stop taking cards if hes hand value already is 17or+
+     * @return true if dealer do all moves or false if dealer need one more move
+     */
     static boolean dealerMove(BotPlayer botPlayer, Deck deck, HumanPlayer humanPlayer) {
         int botValue = Brain.calcHandValue(botPlayer);
         int playerValue = Brain.calcHandValue(humanPlayer);
@@ -38,6 +51,10 @@ public class Brain {
         return true;
     }
 
+    /**
+     * Checking player need to continue game or he is already win/lose
+     * @return 1 if continue, 0 if not, 21 if he already have win combination
+     */
     static int checkContinue(Player player) {
         if (calcHandValue(player) < 21) {
             return 1;
@@ -48,6 +65,10 @@ public class Brain {
         }
     }
 
+    /**
+     * Check and calculate hands values
+     * @return win/lose/draw
+     */
     static String calculateHands(HumanPlayer player, BotPlayer bot) {
         int playerValue = Brain.calcHandValue(player);
         int botValue = Brain.calcHandValue(bot);
