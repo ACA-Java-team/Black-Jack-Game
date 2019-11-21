@@ -10,10 +10,6 @@ public class Deck {
         deckReset();
     }
 
-    public Deck(int deckCount) {
-        deckReset(deckCount);
-    }
-
     public void deckReset() {
         deckReset(6);
     }

@@ -5,7 +5,6 @@ import aca.project.interfacesAndAbstractClasses.Player;
 import aca.project.utility.Bank;
 
 public class HumanPlayer extends Player implements Human {
-
     public HumanPlayer() {
         super("Player");
     }

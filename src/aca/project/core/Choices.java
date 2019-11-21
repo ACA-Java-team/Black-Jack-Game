@@ -1,30 +1,19 @@
 package aca.project.core;
 
-import aca.project.player.HumanPlayer;
-import aca.project.utility.Bank;
 
 import java.util.Scanner;
 
 class Choices {
     static private Scanner scanner = new Scanner(System.in);
 
-    static void start(HumanPlayer player) {
-        System.out.println("Black jack");
-        System.out.println();
-
-        System.out.print("Type your name (String): ");
-        player.setName(scanner.nextLine());
-
-        System.out.println();
-    }
 
     static int move(Boolean isFirstTime) {
         System.out.println("Type your move- ");
-        System.out.println("1   or   \"add\"     : for add additional card.");
-        System.out.println("2   or   \"check\"   : for check cards (end round).");
+        System.out.println("   1   or   \"add\"     : for take one more card.");
+        System.out.println("   2   or   \"check\"   : for check cards (end round).");
         if (isFirstTime) {
-            System.out.println("3   or   \"double\"  : for double your bet.");
-            System.out.println("4   or   \"fold\"    : for instant lose but back 1/2 from your bet.");
+            System.out.println("   3   or   \"double\"  : for double your bet and take only one card.");
+            System.out.println("   4   or   \"fold\"    : for instant lose but back 50% from your bet.");
         }
         System.out.println();
         System.out.print("Type: ");
@@ -56,19 +45,5 @@ class Choices {
             }
         }
     }
-
-    static int betting(Bank bank) {
-        System.out.println();
-        System.out.print("Bet your money (you have:" + bank.getAccount() + ") : ");
-        while (true) {
-            int bet = bank.bet(scanner.nextInt());
-            if (bet < 2 || bet > bank.getAccount()) {
-                System.out.println("Error: try again. (bet cant be more then your bank and less then 2.");
-            } else {
-                return bank.bet(bet);
-            }
-        }
-    }
-
 
 }

@@ -14,15 +14,22 @@ public class Init {
     private static int win = 0;
     private static int lose = 0;
     private static int draw = 0;
+    private static boolean hide = true;
 
     public static void play() throws IOException, InterruptedException {
+        System.out.println(FigletMenu.getBlackJack());
+        Scanner scanner = new Scanner(System.in);
+        System.out.println();
+        System.out.print("Type your name: ");
+        String name = scanner.nextLine();
         clear();
-        start();
+        start(name);
     }
 
-    private static void start() throws IOException, InterruptedException {
+    private static void start(String name) throws IOException, InterruptedException {
         HumanPlayer player = new HumanPlayer();
         BotPlayer bot = new BotPlayer("Bot");
+        player.setName(name);
         Deck deck = new Deck();
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -54,6 +61,7 @@ public class Init {
             if (deck.getDeck().size() < 156) {
                 deck.deckReset();
             }
+            hide = true;
             clear();
         }
         clear();
@@ -68,10 +76,9 @@ public class Init {
     private static String round(HumanPlayer player, BotPlayer bot, Deck deck) throws IOException, InterruptedException {
         Dealer.deal2cards(player.getHand(), deck);
         Dealer.deal2cards(bot.getHand(), deck);
-
         player.getBank().bet(2);
 
-        Gui.showStats(bot);
+        Gui.showStats(bot, hide);
         Gui.showStats(player);
 
         boolean choice = playerMove(player, deck, bot);
@@ -86,42 +93,21 @@ public class Init {
 
         boolean dealerMove = false;
         while (!dealerMove) {
-            dealerMove = Brain.dealerMove(bot, deck);
+            hide = false;
+            dealerMove = Brain.dealerMove(bot, deck, player);
             clear();
-            Gui.showStats(bot);
+            Gui.showStats(bot, hide);
             Gui.showStats(player);
         }
-        int playerValue = Brain.calcHandValue(player);
-        int botValue = Brain.calcHandValue(bot);
 
-        if (botValue > 21) {
-            player.getBank().win();
+
+        if (Brain.calculateHands(player, bot).equals("win")) {
             return "win";
-        }
-
-        if ((playerValue == botValue) && playerValue == 21) {
-            player.getBank().draw();
+        } else if (Brain.calculateHands(player, bot).equals("lose")) {
+            return "lose";
+        } else {
             return "draw";
         }
-
-        if (playerValue == 21) {
-            player.getBank().win();
-            return "win";
-        } else if (botValue == 21) {
-            player.getBank().lose();
-            return "lose";
-        }
-
-        if (playerValue > botValue) {
-            player.getBank().win();
-            return "win";
-        } else if (playerValue < botValue) {
-            player.getBank().lose();
-            return "lose";
-        }
-
-        player.getBank().draw();
-        return "draw";
 
     }
 
@@ -140,7 +126,7 @@ public class Init {
                     player.getBank().doubleBet();
                 }
                 clear();
-                Gui.showStats(bot);
+                Gui.showStats(bot, hide);
                 Gui.showStats(player);
                 if (Brain.checkContinue(player) != 1) {
                     return false;

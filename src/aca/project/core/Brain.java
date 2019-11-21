@@ -2,6 +2,7 @@ package aca.project.core;
 
 import aca.project.interfacesAndAbstractClasses.Player;
 import aca.project.player.BotPlayer;
+import aca.project.player.HumanPlayer;
 import aca.project.utility.Converter;
 import aca.project.utility.Deck;
 
@@ -27,8 +28,10 @@ public class Brain {
         }
     }
 
-    static boolean dealerMove(BotPlayer botPlayer, Deck deck) {
-        if (Brain.calcHandValue(botPlayer) < 17) {
+    static boolean dealerMove(BotPlayer botPlayer, Deck deck, HumanPlayer humanPlayer) {
+        int botValue = Brain.calcHandValue(botPlayer);
+        int playerValue = Brain.calcHandValue(humanPlayer);
+        if (botValue < 17 && playerValue > botValue) {
             Dealer.addCard(botPlayer.getHand(), deck);
             return false;
         }
@@ -43,5 +46,38 @@ public class Brain {
         } else {
             return 21;
         }
+    }
+
+    static String calculateHands(HumanPlayer player, BotPlayer bot) {
+        int playerValue = Brain.calcHandValue(player);
+        int botValue = Brain.calcHandValue(bot);
+
+        if (botValue > 21) {
+            player.getBank().win();
+            return "win";
+        }
+        if ((playerValue == botValue) && playerValue == 21) {
+            player.getBank().draw();
+            return "draw";
+        }
+
+        if (playerValue == 21) {
+            player.getBank().win();
+            return "win";
+        } else if (botValue == 21) {
+            player.getBank().lose();
+            return "lose";
+        }
+
+        if (playerValue > botValue) {
+            player.getBank().win();
+            return "win";
+        } else if (playerValue < botValue) {
+            player.getBank().lose();
+            return "lose";
+        }
+
+        player.getBank().draw();
+        return "draw";
     }
 }
