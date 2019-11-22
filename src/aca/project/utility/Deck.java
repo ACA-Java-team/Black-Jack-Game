@@ -14,6 +14,10 @@ public class Deck {
         deckReset(6);
     }
 
+    /**
+     * Function what create something like a real deck in ArrayList
+     * @param deckCount mean how many decks u use in game
+     */
     private void deckReset(int deckCount) {
         this.deck = new ArrayList<>();
         for (int i = 0; i < deckCount; i++) {

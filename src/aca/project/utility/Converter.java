@@ -34,6 +34,12 @@ public class Converter {
         }
     }
 
+    /**
+     * Calculating value of card
+     * 10 J Q K = 10
+     * 2-9 = 2-9
+     * ACE return 100 for calculating all hand value in Brain.calcHandValue()
+     */
     public static int value(int value) {
         switch (value) {
             case 10:

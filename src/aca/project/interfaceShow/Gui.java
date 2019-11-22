@@ -11,6 +11,9 @@ import java.util.ArrayList;
 public class Gui {
     private static final String LINE = "--------------------------------------";
 
+    /**
+     *Human player show stats, he include bank and bet stats
+     */
     public static void showStats(HumanPlayer player) {
         System.out.println(LINE);
         showFigletHand(player, false);
@@ -23,7 +26,10 @@ public class Gui {
         System.out.println(LINE);
     }
 
-
+    /**
+     * Bot show stats,
+     * @param hide control hiding second card in first deal.
+     */
     public static void showStats(BotPlayer bot, boolean hide) {
         System.out.println(LINE);
         showFigletHand(bot, hide);
@@ -33,6 +39,10 @@ public class Gui {
         System.out.println(LINE);
     }
 
+    /**
+     * sout figlet this moment hand
+     * @param hide control showing second card in first deal
+     */
     private static void showFigletHand(Player player, boolean hide) {
         if (hide) {
             figletCards(Converter.figlet(player.getHand().getCards().get(0)));
@@ -47,6 +57,10 @@ public class Gui {
         }
     }
 
+    /**
+     * Show this moment player hand value
+     * @param hide if true show "?"
+     */
     private static void showHandValue(Player player, boolean hide) {
         if (hide) {
             System.out.println(player.getName() + " hand value is: ?");
@@ -56,6 +70,10 @@ public class Gui {
     }
 
 
+    /**
+     * Take players hand array and convert it to a face cards.
+     * @param hide if true show: first card and "?"
+     */
     private static void showHand(Player player, boolean hide) {
         ArrayList<Integer> hand = player.getHand().getCards();
         System.out.print(player.getName() + " cards is: ");
@@ -74,6 +92,9 @@ public class Gui {
         System.out.println(player.getName() + " bank is: " + player.getBank().getAccount());
     }
 
+    /**
+     * Utility function to sout figlet cards
+     */
     private static void figletCards(String[][] arr) {
         System.out.println();
         for (int i = 0; i < arr[0].length; i++) {
@@ -84,6 +105,11 @@ public class Gui {
         }
     }
 
+    /**
+     * Overloaded "figletCards" who take only one array(from FigletCard class)
+     * and show it with FigletCard.getCardBack()
+     * Created for using in "hide" is true in function "showStats"
+     */
     private static void figletCards(String[] arr) {
         System.out.println();
         for (int i = 0; i < arr.length; i++) {

@@ -115,6 +115,9 @@ public class Init {
     }
 
 
+    /**
+     * @return true if player can continue or win, false if player already end round
+     */
     private static boolean playerMove(HumanPlayer player, Deck deck, BotPlayer bot) throws IOException, InterruptedException {
         boolean firstMove = true;
         if (Brain.calcHandValue(player) == 21) {

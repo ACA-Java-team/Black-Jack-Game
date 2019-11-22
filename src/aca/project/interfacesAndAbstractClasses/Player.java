@@ -1,6 +1,5 @@
 package aca.project.interfacesAndAbstractClasses;
 
-import aca.project.utility.Bank;
 import aca.project.utility.Hand;
 
 
@@ -17,7 +16,6 @@ public abstract class Player {
     public String getName() {
         return name;
     }
-
 
     public Hand getHand() {
         return hand;
