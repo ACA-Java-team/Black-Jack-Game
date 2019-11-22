@@ -56,7 +56,7 @@ public class Init {
             if (player.getBank().getAccount() < 2) {
                 break;
             }
-            System.out.print("Do you want play again?: ");
+            System.out.print("Do you want play again? (Y/N): ");
             String continueVar = scanner.nextLine();
             if (continueVar.equals("n") || continueVar.equals("N")) {
                 break;
@@ -69,10 +69,10 @@ public class Init {
         }
         clear();
         Gui.drawMenu(FigletMenu.getResult());
-        System.out.println(player.getName() + " you have: " + player.getBank().getAccount() + " money.");
-        System.out.println("win = " + win);
-        System.out.println("lose = " + lose);
-        System.out.println("draw = " + draw);
+        System.out.println("                     "+player.getName() + " you have: " + player.getBank().getAccount() + " money.");
+        System.out.println("                     win = " + win);
+        System.out.println("                     lose = " + lose);
+        System.out.println("                     draw = " + draw);
     }
 
 
