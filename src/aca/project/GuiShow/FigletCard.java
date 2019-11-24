@@ -1,4 +1,4 @@
-package aca.project.interfaceShow;
+package aca.project.GuiShow;
 
 public class FigletCard {
     private static final int STRING_COUNT = 11;

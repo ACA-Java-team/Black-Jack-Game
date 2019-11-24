@@ -1,4 +1,4 @@
-package aca.project.interfaceShow;
+package aca.project.GuiShow;
 
 public class FigletMenu {
     private static String[] youDraw = {

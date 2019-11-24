@@ -1,6 +1,6 @@
 package aca.project.utility;
 
-import aca.project.interfaceShow.FigletCard;
+import aca.project.GuiShow.FigletCard;
 
 public class Converter {
     public static String[] figlet(int value) {

@@ -1,8 +1,8 @@
 package aca.project.core;
 
 
-import aca.project.interfaceShow.FigletMenu;
-import aca.project.interfaceShow.Gui;
+import aca.project.GuiShow.FigletMenu;
+import aca.project.GuiShow.Gui;
 import aca.project.player.BotPlayer;
 import aca.project.player.HumanPlayer;
 import aca.project.utility.Deck;

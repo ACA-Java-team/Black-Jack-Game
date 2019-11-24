@@ -1,4 +1,4 @@
-package aca.project.interfaceShow;
+package aca.project.GuiShow;
 
 import aca.project.core.Brain;
 import aca.project.interfacesAndAbstractClasses.Player;
